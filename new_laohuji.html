@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{background-image: url(img/1e.jpg);}
+			#warp_warp{margin: 110px auto;width: 1190px;}
+			img{width: 200px;height: 400px;float: left;margin-right: 4px;}
+			#box_warp>img{width: 80px;height: 80px;background: chartreuse;border-radius: 5px;
+				border: 1px solid #DAA520;}
+			.imgs{margin-right: 607px;}
+			input{position: absolute;top: 189px;left: 342px;width: 100px;height: 50px;background: chocolate;}
+			#box_warp{width: 780px;height: 430px;position: relative;float: left;}
+		</style>
+	</head>
+	<body>
+		<div id="warp_warp">
+			<img src="img/1b  (1).jpg"/>
+		<!--<img src="img/1c.jpg"/>
+		<img src="img/1d.jpg"/>-->
+		<div id="box_warp">
+			<img src="img/1.png" id="imgss0"/>
+			<img src="img/2.png" id="imgss1"/>
+			<img src="img/3.png" id="imgss2"/>
+			<img src="img/4.png" id="imgss3"/>
+			<img src="img/5.png" id="imgss4"/>
+			<img src="img/6.png" id="imgss5"/>
+			<img src="img/1.png" id="imgss6"/>
+			<img src="img/2.png" id="imgss7"/>
+			<img src="img/3.png" id="imgss8"/>
+			<br />
+			<img src="img/6.png" class="imgs" id="imgss23"/>
+			<img src="img/4.png" id="imgss9"/>
+			<br />
+			<img src="img/5.png" class="imgs" id="imgss22"/>
+			<img src="img/5.png" id="imgss10"/>
+			<br />
+			<img src="img/4.png" class="imgs" id="imgss21"/>
+			<img src="img/6.png" id="imgss11"/>
+			<br />
+			<img src="img/3.png" id="imgss20"/>
+			<img src="img/2.png" id="imgss19"/>
+			<img src="img/1.png" id="imgss18"/>
+			<img src="img/5.png" id="imgss17"/>
+			<img src="img/5.png" id="imgss16"/>
+			<img src="img/4.png" id="imgss15"/>
+			<img src="img/4.png" id="imgss14"/>
+			<img src="img/5.png" id="imgss13"/>
+			<img src="img/6.png" id="imgss12"/>
+			<input type="button" id="start" value="开始" />
+		</div>
+		<img src="img/1b  (2).jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var imgbox;
+		var but=document.getElementById("start");
+		var i=0;
+		var sum=Math.floor(Math.random()*24)+48;
+		var timer;
+		var change=function(){
+			imgbox=document.getElementById("imgss"+i)
+			imgbox.style.background="#FF7F50";
+			if(i>=1){
+				var imgbox1=document.getElementById("imgss"+(i-1));
+				imgbox1.style.background="chartreuse";
+			}else{
+				var imgbox2=document.getElementById("imgss"+23);
+				imgbox2.style.background="chartreuse";
+			}
+			if (i<=22) {
+				i++;
+			} else{
+				i=0;
+			}
+			var aa=function(){
+				var ghh=imgbox.getAttribute("src").slice(4);
+				switch (ghh)
+		        {
+		            case "1.png":alert("樱桃");break;
+		            case "2.png":alert("葡萄");break;
+		            case "3.png":alert("铃铛");break;
+		            case "4.png":alert("七喜");break;
+		            case "5.png":alert("西瓜");break;
+		            case "6.png":alert("木瓜");break;
+		        }
+			}
+			if(sum<=1){
+				clearInterval(timer);
+				sum=Math.floor(Math.random()*24)+48;
+				setTimeout(aa,100);
+				console.log(aa);
+			}
+			
+			sum--;
+		}
+		but.onclick=function(){
+			timer=setInterval(change,100);
+		}
+	</script>
+</html>
